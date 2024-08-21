@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatch - Premium Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .message {
+            animation: slideInRight 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <% if (messages.success) { %>
+            <% messages.success.forEach(function(msg) { %>
+                <div class="message fixed top-5 right-5 p-2 rounded z-50 bg-green-400 text-white text-sm">
+                    <%= msg %>
+                </div>
+                <% }); %>
+                    <% } %>
+
+                        <% if (messages.error) { %>
+                            <% messages.error.forEach(function(msg) { %>
+                                <div class="message fixed top-5 right-5 p-2 rounded z-50 bg-red-400 text-white text-sm">
+                                    <%= msg %>
+                                </div>
+                                <% }); %>
+                                    <% } %>
+    </div>
+    <script src="../../javascript/toast.js"></script>
+
+</body>
+
+</html>
